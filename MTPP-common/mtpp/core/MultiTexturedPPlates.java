@@ -17,7 +17,7 @@ import eurysmods.api.ICommonProxy;
 @Mod(
 		modid = "MultiTexturedPPlates",
 		name = "Multi-Textured Pressure Plates",
-		dependencies = "EurysCore",
+		dependencies = "after:EurysCore",
 		version = "2.0.0.0")
 @NetworkMod(
 		clientSideRequired = true,
