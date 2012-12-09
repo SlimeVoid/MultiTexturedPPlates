@@ -1,0 +1,17 @@
+[
+{
+  "modid": "MultiTexturedPPlates",
+  "name": "Multi-Textured Pressure Plates",
+  "description": "Adds many different types and textures of Pressure Plates",
+  "version": "1.3",
+  "mcversion": "1.3.2",
+  "url": "https://github.com/Eurymachus/Eurys-FMs",
+  "updateUrl": "",
+  "credits": "Mod By: Eurymachus",
+  "authors": ["Eurymachus"],
+  "logoFile": "",
+  "screenshots": [],
+  "parent":"",
+  "dependencies": ["EurysCore"]
+}
+]
