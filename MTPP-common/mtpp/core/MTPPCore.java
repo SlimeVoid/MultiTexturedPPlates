@@ -105,15 +105,6 @@ public class MTPPCore {
 				Character.valueOf('Y'),
 				Block.pressurePlateStone });
 
-		GameRegistry.addRecipe(MTPPItemPPlates.iron.me, new Object[] {
-				"X",
-				"Y",
-				"X",
-				Character.valueOf('X'),
-				Item.ingotIron,
-				Character.valueOf('Y'),
-				Block.pressurePlateStone });
-
 		GameRegistry.addRecipe(MTPPItemPPlates.gold.me, new Object[] {
 				"X",
 				"Y",
@@ -135,15 +126,18 @@ public class MTPPCore {
 		FurnaceRecipes.smelting().addSmelting(
 				MTPPBlocks.mtPPlate.id,
 				MTPPItemPPlates.iron.stackID,
-				new ItemStack(Item.ingotIron, 2));
+				new ItemStack(Item.ingotIron, 2),
+				1);
 		FurnaceRecipes.smelting().addSmelting(
 				MTPPBlocks.mtPPlate.id,
 				MTPPItemPPlates.gold.stackID,
-				new ItemStack(Item.ingotGold, 2));
+				new ItemStack(Item.ingotGold, 2),
+				2);
 		FurnaceRecipes.smelting().addSmelting(
 				MTPPBlocks.mtPPlate.id,
 				MTPPItemPPlates.diamond.stackID,
-				new ItemStack(Item.diamond, 2));
+				new ItemStack(Item.diamond, 2),
+				3);
 	}
 
 	public static int configurationProperties() {
