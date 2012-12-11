@@ -3,13 +3,9 @@ package mtpp.blocks;
 import java.util.List;
 import java.util.Random;
 
-import eurysmods.api.IContainer;
-
 import mtpp.core.MTPPInit;
 import mtpp.core.MTPPItemPPlates;
-import mtpp.tileentities.TileEntityMTPPlate;
 import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.BlockFence;
 import net.minecraft.src.BlockPressurePlate;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityItem;
@@ -17,7 +13,6 @@ import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.StepSound;
-import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
 
 public class BlockMTPPlateMeta extends BlockPressurePlate {
@@ -38,32 +33,38 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 	public int getBlockTexture(IBlockAccess world, int x, int y, int z, int side) {
 		int meta = world.getBlockMetadata(x, y, z);
 		int damage = getPlateFromMeta(meta);
-		if (damage <= 1) damage = meta;
-		return MTPPInit.MTPP.getProxy().getBlockTextureFromSideAndMetadata(side, damage);
+		if (damage <= 1)
+			damage = meta;
+		return MTPPInit.MTPP.getProxy().getBlockTextureFromSideAndMetadata(
+				side,
+				damage);
 	}
 
 	@Override
 	public int getBlockTextureFromSideAndMetadata(int side, int meta) {
 		int damage = getPlateFromMeta(meta);
-		if (damage <= 1) damage = meta;
-		return MTPPInit.MTPP.getProxy().getBlockTextureFromSideAndMetadata(side, damage);
+		if (damage <= 1)
+			damage = meta;
+		return MTPPInit.MTPP.getProxy().getBlockTextureFromSideAndMetadata(
+				side,
+				damage);
 	}
-	
+
 	private static int getStateFromMeta(int meta) {
 		int state = meta & 1;
 		return state;
 	}
-	
+
 	private static int getTriggerFromMeta(int meta) {
 		int trigger = meta >> 1;
 		return trigger & 1;
 	}
-	
+
 	private static int getPlateFromMeta(int meta) {
 		int texture = meta >> 2;
 		return texture & 3;
 	}
-	
+
 	private static int addStateToMeta(int meta, int state) {
 		int newmeta = meta & 14;
 		int newstate = state & 1;
@@ -117,7 +118,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 			flag1 = true;
 		}
 		if (flag1 && !flag) {
-			int newMeta = addStateToMeta(world.getBlockMetadata(x, y, z), 1); 
+			int newMeta = addStateToMeta(world.getBlockMetadata(x, y, z), 1);
 			System.out.println("newmeta: " + Integer.toBinaryString(newMeta));
 			world.setBlockMetadataWithNotify(x, y, z, newMeta);
 			world.notifyBlocksOfNeighborChange(x, y, z, blockID);
@@ -132,7 +133,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 					0.6F);
 		}
 		if (!flag1 && flag) {
-			int newMeta = addStateToMeta(world.getBlockMetadata(x, y, z), 0); 
+			int newMeta = addStateToMeta(world.getBlockMetadata(x, y, z), 0);
 			System.out.println("newmeta: " + Integer.toBinaryString(newMeta));
 			world.setBlockMetadataWithNotify(x, y, z, newMeta);
 			world.notifyBlocksOfNeighborChange(x, y, z, blockID);
@@ -159,11 +160,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 		if (!world.isRemote) {
 			int state = getStateFromMeta(world.getBlockMetadata(x, y, z));
 			if (state != 0) {
-				this.setStateIfMobInteractsWithMTPlate(
-						world,
-						x,
-						y,
-						z);
+				this.setStateIfMobInteractsWithMTPlate(world, x, y, z);
 			}
 		}
 	}
@@ -177,67 +174,70 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 		if (!world.isRemote) {
 			int state = getStateFromMeta(world.getBlockMetadata(x, y, z));
 			if (state != 1) {
-				this.setStateIfMobInteractsWithMTPlate(
-						world,
-						x,
-						y,
-						z);
+				this.setStateIfMobInteractsWithMTPlate(world, x, y, z);
 			}
 		}
 	}
-	
-    /**
-     * Updates the blocks bounds based on its current state. Args: world, x, y, z
-     */
-	@Override
-    public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
-    {
-		int meta = world.getBlockMetadata(x, y, z);
-        boolean flag = getStateFromMeta(meta) == 1;
-        float var6 = 0.0625F;
 
-        if (flag)
-        {
-            this.setBlockBounds(var6, 0.0F, var6, 1.0F - var6, 0.03125F, 1.0F - var6);
-        }
-        else
-        {
-            this.setBlockBounds(var6, 0.0F, var6, 1.0F - var6, 0.0625F, 1.0F - var6);
-        }
-    }
-
-    /**
-     * Is this block powering the block on the specified side
-     */
+	/**
+	 * Updates the blocks bounds based on its current state. Args: world, x, y,
+	 * z
+	 */
 	@Override
-    public boolean isPoweringTo(IBlockAccess world, int x, int y, int z, int side)
-    {
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
 		int meta = world.getBlockMetadata(x, y, z);
-        return getStateFromMeta(meta) > 0;
-    }
+		boolean flag = getStateFromMeta(meta) == 1;
+		float var6 = 0.0625F;
 
-    /**
-     * Is this block indirectly powering the block on the specified side
-     */
+		if (flag) {
+			this.setBlockBounds(
+					var6,
+					0.0F,
+					var6,
+					1.0F - var6,
+					0.03125F,
+					1.0F - var6);
+		} else {
+			this.setBlockBounds(
+					var6,
+					0.0F,
+					var6,
+					1.0F - var6,
+					0.0625F,
+					1.0F - var6);
+		}
+	}
+
+	/**
+	 * Is this block powering the block on the specified side
+	 */
 	@Override
-    public boolean isIndirectlyPoweringTo(IBlockAccess world, int x, int y, int z, int side)
-    {
+	public boolean isPoweringTo(IBlockAccess world, int x, int y, int z, int side) {
 		int meta = world.getBlockMetadata(x, y, z);
-        return getStateFromMeta(meta) == 0 ? false : side == 1;
-    }
-	
+		return getStateFromMeta(meta) > 0;
+	}
+
+	/**
+	 * Is this block indirectly powering the block on the specified side
+	 */
 	@Override
-    public void breakBlock(World world, int x, int y, int z, int side, int meta) {
+	public boolean isIndirectlyPoweringTo(IBlockAccess world, int x, int y, int z, int side) {
+		int meta = world.getBlockMetadata(x, y, z);
+		return getStateFromMeta(meta) == 0 ? false : side == 1;
+	}
+
+	@Override
+	public void breakBlock(World world, int x, int y, int z, int side, int meta) {
 		System.out.println(meta);
 		int damage = getPlateFromMeta(meta);
 		ItemStack itemstack = MTPPItemPPlates.getStack(damage);
 		EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(
 				itemstack.itemID,
-				1,
-				itemstack.getItemDamage()));
+					1,
+					itemstack.getItemDamage()));
 		world.spawnEntityInWorld(entityitem);
 		super.breakBlock(world, x, y, z, side, meta);
-    }
+	}
 
 	@Override
 	public int quantityDropped(Random random) {

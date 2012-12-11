@@ -2,9 +2,9 @@ package mtpp.network;
 
 import mtpp.core.MTPPInit;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.INetworkManager;
 import net.minecraft.src.NetHandler;
 import net.minecraft.src.NetLoginHandler;
-import net.minecraft.src.INetworkManager;
 import net.minecraft.src.Packet1Login;
 import net.minecraft.src.Packet250CustomPayload;
 import cpw.mods.fml.common.network.Player;

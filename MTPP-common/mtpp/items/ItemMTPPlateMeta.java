@@ -2,12 +2,10 @@ package mtpp.items;
 
 import mtpp.core.MTPPBlocks;
 import mtpp.core.MTPPItemPPlates;
-import mtpp.tileentities.TileEntityMTPPlate;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
 
 public class ItemMTPPlateMeta extends ItemBlock {
@@ -57,15 +55,16 @@ public class ItemMTPPlateMeta extends ItemBlock {
 		return icon;
 	}
 
-    /**
-     * Returns the metadata of the block which this Item (ItemBlock) can place
-     */
-    public int getMetadata(int damage)
-    {
-		int meta = getFullMetadata(damage, MTPPItemPPlates.getTriggerType(damage));
+	/**
+	 * Returns the metadata of the block which this Item (ItemBlock) can place
+	 */
+	public int getMetadata(int damage) {
+		int meta = getFullMetadata(
+				damage,
+				MTPPItemPPlates.getTriggerType(damage));
 		System.out.println("Meta: " + Integer.toBinaryString(meta));
 		return meta;
-    }
+	}
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int x, int y, int z, int l, float a, float b, float c) {
@@ -113,7 +112,8 @@ public class ItemMTPPlateMeta extends ItemBlock {
 					z,
 					mtPPlate.blockID,
 					this.getMetadata(itemstack.getItemDamage()))) {
-				System.out.println("PlacedMeta: " + Integer.toBinaryString(world.getBlockMetadata(x, y, z)));
+				System.out.println("PlacedMeta: " + Integer
+						.toBinaryString(world.getBlockMetadata(x, y, z)));
 				if (world.getBlockId(x, y, z) == mtPPlate.blockID) {
 					mtPPlate.func_85105_g(world, x, y, z, l);
 					mtPPlate.onBlockPlacedBy(world, x, y, z, entityplayer);

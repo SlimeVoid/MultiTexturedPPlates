@@ -1,9 +1,9 @@
 package mtpp.network.packets;
 
-import eurysmods.network.packets.core.PacketPayload;
-import eurysmods.network.packets.core.PacketTileEntityMT;
 import mtpp.core.MTPPInit;
 import mtpp.tileentities.TileEntityMTPPlate;
+import eurysmods.network.packets.core.PacketPayload;
+import eurysmods.network.packets.core.PacketTileEntityMT;
 
 public class PacketUpdateMTPPlate extends PacketTileEntityMT {
 	public PacketUpdateMTPPlate() {

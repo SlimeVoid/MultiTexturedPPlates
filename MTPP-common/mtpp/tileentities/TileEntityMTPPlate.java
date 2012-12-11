@@ -1,11 +1,11 @@
 package mtpp.tileentities;
 
-import eurysmods.network.packets.core.PacketUpdate;
-import eurysmods.tileentities.TileEntityMT;
 import mtpp.network.packets.PacketUpdateMTPPlate;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.Packet;
 import net.minecraft.src.World;
+import eurysmods.network.packets.core.PacketUpdate;
+import eurysmods.tileentities.TileEntityMT;
 
 public class TileEntityMTPPlate extends TileEntityMT {
 	public int triggerType;

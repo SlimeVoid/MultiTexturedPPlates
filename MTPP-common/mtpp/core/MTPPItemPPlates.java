@@ -49,7 +49,7 @@ public enum MTPPItemPPlates {
 		}
 		return 1;
 	}
-	
+
 	public static float getHardness(int itemDamage) {
 		for (MTPPItemPPlates itemstack : MTPPItemPPlates.values()) {
 			if (itemstack != null && itemstack.stackID == itemDamage) {
@@ -73,7 +73,7 @@ public enum MTPPItemPPlates {
 			this.triggerType = 1;
 		}
 	}
-	
+
 	public void setBlockHardness(float hardness) {
 		this.hardness = hardness;
 	}

@@ -3,10 +3,6 @@ package mtpp.blocks;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-import eurysmods.api.IContainer;
-
 import mtpp.core.MTPPInit;
 import mtpp.core.MTPPItemPPlates;
 import mtpp.tileentities.TileEntityMTPPlate;
@@ -26,19 +22,14 @@ import net.minecraft.src.ModLoader;
 import net.minecraft.src.StepSound;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
-import net.minecraftforge.common.ForgeHooks;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
+import eurysmods.api.IContainer;
 
 public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 	Class mtPPlateEntityClass;
 
-	public BlockMTPPlate(
-			int blockId,
-			Class pPlateClass,
-			float hardness,
-			StepSound sound,
-			boolean disableStats,
-			boolean requiresSelfNotify,
-			String blockName) {
+	public BlockMTPPlate(int blockId, Class pPlateClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, String blockName) {
 		super(blockId, 0, null, Material.circuits);
 		this.setBlockName(blockName);
 		this.isBlockContainer = true;
@@ -204,26 +195,28 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 		}
 		return false;
 	}
-	
+
 	@Override
-    public boolean removeBlockByPlayer(World world, EntityPlayer entityplayer, int x, int y, int z) {
+	public boolean removeBlockByPlayer(World world, EntityPlayer entityplayer, int x, int y, int z) {
 		if (!isCreative(entityplayer)) {
 			if (!world.isRemote) {
-				ItemStack itemstack = MTPPItemPPlates.getStack(MTPPInit.getDamageValue(
+				ItemStack itemstack = MTPPItemPPlates.getStack(MTPPInit
+						.getDamageValue(world, x, y, z));
+				EntityItem entityitem = new EntityItem(
 						world,
-						x,
-						y,
-						z));
-				EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(
-						itemstack.itemID,
-						1,
-						itemstack.getItemDamage()));
+							x,
+							y,
+							z,
+							new ItemStack(
+									itemstack.itemID,
+										1,
+										itemstack.getItemDamage()));
 				world.spawnEntityInWorld(entityitem);
 			}
 		}
-        return world.setBlockWithNotify(x, y, z, 0);
-    }
-	
+		return world.setBlockWithNotify(x, y, z, 0);
+	}
+
 	@Override
 	public void breakBlock(World world, int i, int j, int k, int a, int b) {
 		super.breakBlock(world, i, j, k, a, b);
@@ -256,22 +249,26 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 				z,
 				this.createTileEntity(world, world.getBlockMetadata(x, y, z)));
 	}
-	
+
 	@Override
-    public float getBlockHardness(World world, int x, int y, int z) {
-        return MTPPItemPPlates.getHardness(MTPPInit.getDamageValue(world, x, y, z));
-    }
-	
-    @SideOnly(Side.CLIENT)
-    /**
-     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
-     */
-    @Override
-    public void getSubBlocks(int blockId, CreativeTabs creativeTabs, List blockList){
-    	for (MTPPItemPPlates plate : MTPPItemPPlates.values()) {
-    		if (plate.stackID > 1) {
-    			blockList.add(new ItemStack(blockId, 1, plate.stackID));
-    		}
-    	}
-    }
+	public float getBlockHardness(World world, int x, int y, int z) {
+		return MTPPItemPPlates.getHardness(MTPPInit.getDamageValue(
+				world,
+				x,
+				y,
+				z));
+	}
+
+	@SideOnly(Side.CLIENT)
+	/**
+	 * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
+	 */
+	@Override
+	public void getSubBlocks(int blockId, CreativeTabs creativeTabs, List blockList) {
+		for (MTPPItemPPlates plate : MTPPItemPPlates.values()) {
+			if (plate.stackID > 1) {
+				blockList.add(new ItemStack(blockId, 1, plate.stackID));
+			}
+		}
+	}
 }

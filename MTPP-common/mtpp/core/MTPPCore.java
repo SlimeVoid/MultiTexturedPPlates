@@ -30,16 +30,14 @@ public class MTPPCore {
 
 	public static void addItems() {
 		MTPPBlocks.mtPPlate.id = configurationProperties();
-		MTPPBlocks.mtPPlate.me = (
-				new BlockMTPPlate(
-					MTPPBlocks.mtPPlate.id,
+		MTPPBlocks.mtPPlate.me = (new BlockMTPPlate(
+				MTPPBlocks.mtPPlate.id,
 					TileEntityMTPPlate.class,
 					0.5F,
 					Block.soundStoneFootstep,
 					true,
 					true,
-					"mtPPlate")
-				);
+					"mtPPlate"));
 		GameRegistry.registerTileEntity(TileEntityMTPPlate.class, "mtPPlate");
 		for (MTPPItemPPlates pplate : MTPPItemPPlates.values()) {
 			pplate.me = new ItemStack(MTPPBlocks.mtPPlate.me, 1, pplate.stackID);
@@ -145,11 +143,10 @@ public class MTPPCore {
 
 	public static int configurationProperties() {
 		configuration.load();
-		MTPPBlocks.mtPPlate.id = Integer.parseInt(
-				configuration.get(
-						Configuration.CATEGORY_BLOCK,
-						"mtPPlate",
-						72).value);
+		MTPPBlocks.mtPPlate.id = Integer.parseInt(configuration.get(
+				Configuration.CATEGORY_BLOCK,
+				"mtPPlate",
+				72).value);
 		MTPPBlocks.mtPPlate.name = "Multi-Textured Pressure Plate";
 		MTPPItemPPlates.topplaceholder.name = "Top";
 		MTPPItemPPlates.bottomplaceholder.name = "Bottom";

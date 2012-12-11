@@ -2,18 +2,17 @@ package mtpp.core;
 
 import java.io.File;
 
+import mtpp.tileentities.TileEntityMTPPlate;
+import net.minecraft.src.Block;
+import net.minecraft.src.IBlockAccess;
+import net.minecraft.src.TileEntity;
+import net.minecraftforge.common.Configuration;
 import eurysmods.api.ICommonProxy;
 import eurysmods.api.ICore;
 import eurysmods.core.BlockRemover;
 import eurysmods.core.Core;
 import eurysmods.core.EurysCore;
 import eurysmods.core.RecipeRemover;
-
-import mtpp.tileentities.TileEntityMTPPlate;
-import net.minecraft.src.Block;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.TileEntity;
-import net.minecraftforge.common.Configuration;
 
 public class MTPPInit {
 	public static ICore MTPP;
@@ -49,12 +48,12 @@ public class MTPPInit {
 		EurysCore.console(MTPP.getModName(), "Registering recipes...");
 		MTPPCore.addRecipes();
 	}
-	
-/*	public static int getDamageValue(IBlockAccess world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
-		int damage = meta >> 2;
-		return damage;
-	}*/
+
+	/*
+	 * public static int getDamageValue(IBlockAccess world, int x, int y, int z)
+	 * { int meta = world.getBlockMetadata(x, y, z); int damage = meta >> 2;
+	 * return damage; }
+	 */
 
 	public static int getDamageValue(IBlockAccess world, int x, int y, int z) {
 		TileEntity tileentity = world.getBlockTileEntity(x, y, z);
