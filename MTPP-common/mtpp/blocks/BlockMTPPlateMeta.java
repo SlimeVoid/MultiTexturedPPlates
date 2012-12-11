@@ -74,9 +74,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 
 	private void setStateIfMobInteractsWithMTPlate(World world, int x, int y, int z) {
 		int state = getStateFromMeta(world.getBlockMetadata(x, y, z));
-		System.out.println("state: " + Integer.toBinaryString(state));
 		int trigger = getTriggerFromMeta(world.getBlockMetadata(x, y, z));
-		System.out.println("trigger: " + Integer.toBinaryString(trigger));
 		boolean flag = state == 1;
 		boolean flag1 = false;
 		float f = 0.125F;
@@ -119,7 +117,6 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 		}
 		if (flag1 && !flag) {
 			int newMeta = addStateToMeta(world.getBlockMetadata(x, y, z), 1);
-			System.out.println("newmeta: " + Integer.toBinaryString(newMeta));
 			world.setBlockMetadataWithNotify(x, y, z, newMeta);
 			world.notifyBlocksOfNeighborChange(x, y, z, blockID);
 			world.notifyBlocksOfNeighborChange(x, y - 1, z, blockID);
@@ -134,7 +131,6 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 		}
 		if (!flag1 && flag) {
 			int newMeta = addStateToMeta(world.getBlockMetadata(x, y, z), 0);
-			System.out.println("newmeta: " + Integer.toBinaryString(newMeta));
 			world.setBlockMetadataWithNotify(x, y, z, newMeta);
 			world.notifyBlocksOfNeighborChange(x, y, z, blockID);
 			world.notifyBlocksOfNeighborChange(x, y - 1, z, blockID);
@@ -228,7 +224,6 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 
 	@Override
 	public void breakBlock(World world, int x, int y, int z, int side, int meta) {
-		System.out.println(meta);
 		int damage = getPlateFromMeta(meta);
 		ItemStack itemstack = MTPPItemPPlates.getStack(damage);
 		EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(

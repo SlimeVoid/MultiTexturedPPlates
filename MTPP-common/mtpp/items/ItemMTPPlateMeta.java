@@ -62,7 +62,6 @@ public class ItemMTPPlateMeta extends ItemBlock {
 		int meta = getFullMetadata(
 				damage,
 				MTPPItemPPlates.getTriggerType(damage));
-		System.out.println("Meta: " + Integer.toBinaryString(meta));
 		return meta;
 	}
 
@@ -112,8 +111,6 @@ public class ItemMTPPlateMeta extends ItemBlock {
 					z,
 					mtPPlate.blockID,
 					this.getMetadata(itemstack.getItemDamage()))) {
-				System.out.println("PlacedMeta: " + Integer
-						.toBinaryString(world.getBlockMetadata(x, y, z)));
 				if (world.getBlockId(x, y, z) == mtPPlate.blockID) {
 					mtPPlate.func_85105_g(world, x, y, z, l);
 					mtPPlate.onBlockPlacedBy(world, x, y, z, entityplayer);
