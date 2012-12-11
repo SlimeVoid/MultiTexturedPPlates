@@ -31,8 +31,16 @@ import net.minecraftforge.common.ForgeHooks;
 public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 	Class mtPPlateEntityClass;
 
-	public BlockMTPPlate(int par1, Class pPlateClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify) {
-		super(par1, 0, null, Material.circuits);
+	public BlockMTPPlate(
+			int blockId,
+			Class pPlateClass,
+			float hardness,
+			StepSound sound,
+			boolean disableStats,
+			boolean requiresSelfNotify,
+			String blockName) {
+		super(blockId, 0, null, Material.circuits);
+		this.setBlockName(blockName);
 		this.isBlockContainer = true;
 		mtPPlateEntityClass = pPlateClass;
 		setHardness(hardness);
