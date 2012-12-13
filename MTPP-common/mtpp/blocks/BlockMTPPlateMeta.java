@@ -120,7 +120,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 			world.setBlockMetadataWithNotify(x, y, z, newMeta);
 			world.notifyBlocksOfNeighborChange(x, y, z, blockID);
 			world.notifyBlocksOfNeighborChange(x, y - 1, z, blockID);
-			world.markBlocksDirty(x, y, z, x, y, z);
+			world.markBlockRangeForRenderUpdate(x, y, z, x, y, z);
 			world.playSoundEffect(
 					x + 0.5D,
 					y + 0.10000000000000001D,
@@ -134,7 +134,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 			world.setBlockMetadataWithNotify(x, y, z, newMeta);
 			world.notifyBlocksOfNeighborChange(x, y, z, blockID);
 			world.notifyBlocksOfNeighborChange(x, y - 1, z, blockID);
-			world.markBlocksDirty(x, y, z, x, y, z);
+			world.markBlockRangeForRenderUpdate(x, y, z, x, y, z);
 			world.playSoundEffect(
 					x + 0.5D,
 					y + 0.10000000000000001D,
@@ -208,7 +208,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 	 * Is this block powering the block on the specified side
 	 */
 	@Override
-	public boolean isPoweringTo(IBlockAccess world, int x, int y, int z, int side) {
+	public boolean isProvidingStrongPower(IBlockAccess world, int x, int y, int z, int side) {
 		int meta = world.getBlockMetadata(x, y, z);
 		return getStateFromMeta(meta) > 0;
 	}
@@ -217,7 +217,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 	 * Is this block indirectly powering the block on the specified side
 	 */
 	@Override
-	public boolean isIndirectlyPoweringTo(IBlockAccess world, int x, int y, int z, int side) {
+	public boolean isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int side) {
 		int meta = world.getBlockMetadata(x, y, z);
 		return getStateFromMeta(meta) == 0 ? false : side == 1;
 	}

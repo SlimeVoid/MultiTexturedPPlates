@@ -111,7 +111,7 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 				world.setBlockMetadataWithNotify(i, j, k, 1);
 				world.notifyBlocksOfNeighborChange(i, j, k, blockID);
 				world.notifyBlocksOfNeighborChange(i, j - 1, k, blockID);
-				world.markBlocksDirty(i, j, k, i, j, k);
+				world.markBlockRangeForRenderUpdate(i, j, k, i, j, k);
 				world.playSoundEffect(
 						i + 0.5D,
 						j + 0.10000000000000001D,
@@ -124,7 +124,7 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 				world.setBlockMetadataWithNotify(i, j, k, 0);
 				world.notifyBlocksOfNeighborChange(i, j, k, blockID);
 				world.notifyBlocksOfNeighborChange(i, j - 1, k, blockID);
-				world.markBlocksDirty(i, j, k, i, j, k);
+				world.markBlockRangeForRenderUpdate(i, j, k, i, j, k);
 				world.playSoundEffect(
 						i + 0.5D,
 						j + 0.10000000000000001D,

@@ -93,7 +93,7 @@ public class ItemMTPPlateMeta extends ItemBlock {
 		}
 		if (itemstack.stackSize == 0) {
 			return false;
-		} else if (!entityplayer.func_82247_a(x, y, z, l, itemstack)) {
+		} else if (!entityplayer.canPlayerEdit(x, y, z, l, itemstack)) {
 			return false;
 		} else if (y == 255 && mtPPlate.blockMaterial.isSolid()) {
 			return false;
