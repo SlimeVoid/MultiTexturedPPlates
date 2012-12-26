@@ -1,7 +1,7 @@
 package mtpp.core;
 
-import net.minecraft.src.EnumMobType;
-import net.minecraft.src.ItemStack;
+import net.minecraft.block.EnumMobType;
+import net.minecraft.item.ItemStack;
 
 public enum MTPPItemPPlates {
 	topplaceholder,

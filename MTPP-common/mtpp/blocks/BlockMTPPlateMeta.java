@@ -5,15 +5,15 @@ import java.util.Random;
 
 import mtpp.core.MTPPInit;
 import mtpp.core.MTPPItemPPlates;
-import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.BlockPressurePlate;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityItem;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Material;
-import net.minecraft.src.StepSound;
-import net.minecraft.src.World;
+import net.minecraft.block.BlockPressurePlate;
+import net.minecraft.block.StepSound;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 public class BlockMTPPlateMeta extends BlockPressurePlate {
 
@@ -92,7 +92,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 		}
 		if (trigger == 1) {
 			list = world.getEntitiesWithinAABB(
-					net.minecraft.src.EntityLiving.class,
+					net.minecraft.entity.EntityLiving.class,
 					AxisAlignedBB.getBoundingBox(
 							x + f,
 							y,
@@ -103,7 +103,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 		}
 		if (trigger == 2) {
 			list = world.getEntitiesWithinAABB(
-					net.minecraft.src.EntityPlayer.class,
+					net.minecraft.entity.player.EntityPlayer.class,
 					AxisAlignedBB.getBoundingBox(
 							x + f,
 							y,

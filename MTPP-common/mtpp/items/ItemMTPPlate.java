@@ -3,12 +3,12 @@ package mtpp.items;
 import mtpp.core.MTPPBlocks;
 import mtpp.core.MTPPItemPPlates;
 import mtpp.tileentities.TileEntityMTPPlate;
-import net.minecraft.src.Block;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemBlock;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class ItemMTPPlate extends ItemBlock {
 	private String[] pPlateNames = MTPPItemPPlates.getPPlateNames();

@@ -6,24 +6,24 @@ import java.util.Random;
 import mtpp.core.MTPPInit;
 import mtpp.core.MTPPItemPPlates;
 import mtpp.tileentities.TileEntityMTPPlate;
-import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.BlockPressurePlate;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityClientPlayerMP;
-import net.minecraft.src.EntityItem;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.EnumGameType;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Material;
+import net.minecraft.block.BlockPressurePlate;
+import net.minecraft.block.StepSound;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.StepSound;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.EnumGameType;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import eurysmods.api.IContainer;
 
 public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
@@ -44,6 +44,7 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 		}
 	}
 
+	@Override
 	public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
 		int texture = MTPPItemPPlates.getTexture(MTPPInit.getDamageValue(
 				par1IBlockAccess,
@@ -84,7 +85,7 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 			}
 			if (tileentitymtpplate.getTriggerType() == 1) {
 				list = world.getEntitiesWithinAABB(
-						net.minecraft.src.EntityLiving.class,
+						net.minecraft.entity.EntityLiving.class,
 						AxisAlignedBB.getBoundingBox(
 								i + f,
 								j,
@@ -95,7 +96,7 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 			}
 			if (tileentitymtpplate.getTriggerType() == 2) {
 				list = world.getEntitiesWithinAABB(
-						net.minecraft.src.EntityPlayer.class,
+						net.minecraft.entity.player.EntityPlayer.class,
 						AxisAlignedBB.getBoundingBox(
 								i + f,
 								j,
@@ -237,10 +238,12 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 		}
 	}
 
+	@Override
 	public TileEntity createTileEntity(World world, int meta) {
 		return createNewTileEntity(world);
 	}
 
+	@Override
 	public void onBlockAdded(World world, int x, int y, int z) {
 		super.onBlockAdded(world, x, y, z);
 		world.setBlockTileEntity(

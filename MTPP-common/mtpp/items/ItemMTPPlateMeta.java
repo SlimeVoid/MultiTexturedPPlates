@@ -2,11 +2,11 @@ package mtpp.items;
 
 import mtpp.core.MTPPBlocks;
 import mtpp.core.MTPPItemPPlates;
-import net.minecraft.src.Block;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemBlock;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.World;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class ItemMTPPlateMeta extends ItemBlock {
 	private String[] pPlateNames = MTPPItemPPlates.getPPlateNames();
@@ -58,6 +58,7 @@ public class ItemMTPPlateMeta extends ItemBlock {
 	/**
 	 * Returns the metadata of the block which this Item (ItemBlock) can place
 	 */
+	@Override
 	public int getMetadata(int damage) {
 		int meta = getFullMetadata(
 				damage,
