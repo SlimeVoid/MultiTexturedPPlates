@@ -113,8 +113,8 @@ public class ItemMTPPlateMeta extends ItemBlock {
 					mtPPlate.blockID,
 					this.getMetadata(itemstack.getItemDamage()))) {
 				if (world.getBlockId(x, y, z) == mtPPlate.blockID) {
-					mtPPlate.func_85105_g(world, x, y, z, l);
 					mtPPlate.onBlockPlacedBy(world, x, y, z, entityplayer);
+					mtPPlate.onPostBlockPlaced(world, x, y, z, l);
 				}
 				world.playSoundEffect(
 						(x + 0.5F),

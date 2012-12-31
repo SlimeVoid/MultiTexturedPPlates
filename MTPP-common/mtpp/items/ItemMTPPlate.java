@@ -98,7 +98,7 @@ public class ItemMTPPlate extends ItemBlock {
 					0)) {
 				if (world.getBlockId(i, j, k) == mtPPlate.blockID) {
 					mtPPlate.onBlockPlacedBy(world, i, j, k, entityplayer);
-					mtPPlate.func_85105_g(world, i, j, k, l);
+					mtPPlate.onPostBlockPlaced(world, i, j, k, l);
 					TileEntity tileentity = world.getBlockTileEntity(i, j, k);
 					if (tileentity != null && tileentity instanceof TileEntityMTPPlate) {
 						TileEntityMTPPlate tileentitymtpplate = (TileEntityMTPPlate) tileentity;
