@@ -1,7 +1,7 @@
-package mtpp.network.packets;
+package eurymachus.mtpp.network.packets;
 
-import mtpp.core.MTPPInit;
-import mtpp.tileentities.TileEntityMTPPlate;
+import eurymachus.mtpp.core.MTPPInit;
+import eurymachus.mtpp.tileentities.TileEntityMTPPlate;
 import eurysmods.network.packets.core.PacketPayload;
 import eurysmods.network.packets.core.PacketTileEntityMT;
 

@@ -1,11 +1,8 @@
-package mtpp.proxy;
+package eurymachus.mtpp.proxy;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 
-import mtpp.core.MTPPInit;
-import mtpp.network.ServerPacketHandler;
-import mtpp.network.packets.PacketUpdateMTPPlate;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.NetHandler;
@@ -14,6 +11,9 @@ import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.Player;
+import eurymachus.mtpp.core.MTPPInit;
+import eurymachus.mtpp.network.ServerPacketHandler;
+import eurymachus.mtpp.network.packets.PacketUpdateMTPPlate;
 import eurysmods.api.ICommonProxy;
 import eurysmods.api.IPacketHandling;
 import eurysmods.network.packets.core.PacketIds;

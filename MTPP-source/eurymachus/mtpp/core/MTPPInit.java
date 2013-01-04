@@ -1,12 +1,12 @@
-package mtpp.core;
+package eurymachus.mtpp.core;
 
 import java.io.File;
 
-import mtpp.tileentities.TileEntityMTPPlate;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.Configuration;
+import eurymachus.mtpp.tileentities.TileEntityMTPPlate;
 import eurysmods.api.ICommonProxy;
 import eurysmods.api.ICore;
 import eurysmods.core.BlockRemover;

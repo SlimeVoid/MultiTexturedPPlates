@@ -1,4 +1,4 @@
-package mtpp.core;
+package eurymachus.mtpp.core;
 
 import net.minecraft.block.Block;
 

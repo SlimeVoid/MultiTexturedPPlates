@@ -1,9 +1,9 @@
-package mtpp.tileentities;
+package eurymachus.mtpp.tileentities;
 
-import mtpp.network.packets.PacketUpdateMTPPlate;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.world.World;
+import eurymachus.mtpp.network.packets.PacketUpdateMTPPlate;
 import eurysmods.network.packets.core.PacketUpdate;
 import eurysmods.tileentities.TileEntityMT;
 

@@ -1,14 +1,15 @@
-package mtpp.proxy;
+package eurymachus.mtpp.client.proxy;
 
-import mtpp.core.MTPPInit;
-import mtpp.core.MTPPItemPPlates;
-import mtpp.network.ClientPacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import eurymachus.mtpp.client.network.ClientPacketHandler;
+import eurymachus.mtpp.core.MTPPInit;
+import eurymachus.mtpp.core.MTPPItemPPlates;
+import eurymachus.mtpp.proxy.CommonProxy;
 import eurysmods.api.IPacketHandling;
 
 public class ClientProxy extends CommonProxy {
