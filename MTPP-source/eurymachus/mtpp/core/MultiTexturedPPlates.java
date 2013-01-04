@@ -29,12 +29,12 @@ public class MultiTexturedPPlates {
 			serverSide = "eurymachus.mtpp.proxy.CommonProxy")
 	public static ICommonProxy proxy;
 
-	@Init
-	public void MultiTexturedPPlateInit(FMLInitializationEvent event) {
-	}
-
 	@PreInit
 	public void MultiTexturedPPlatePreInit(FMLPreInitializationEvent event) {
+	}
+
+	@Init
+	public void MultiTexturedPPlateInit(FMLInitializationEvent event) {
 		MTPPCore.initialize(proxy);
 	}
 
