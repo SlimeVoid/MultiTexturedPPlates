@@ -47,10 +47,7 @@ public class MTPPCore {
 	public static void registerBlocks() {
 		for (MTPPBlocks block : MTPPBlocks.values()) {
 			if (block != null && block.me != null) {
-				GameRegistry.registerBlock(block.me, ItemMTPPlate.class);
-				if (block.name != null) {
-					ModLoader.addName(block.me, block.name);
-				}
+				GameRegistry.registerBlock(block.me, ItemMTPPlate.class, block.name);
 			}
 		}
 		ModLoader.addName(Block.pressurePlateStone, "Stone Pressure Plate");

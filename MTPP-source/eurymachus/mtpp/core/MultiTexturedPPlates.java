@@ -35,10 +35,10 @@ public class MultiTexturedPPlates {
 
 	@Init
 	public void MultiTexturedPPlateInit(FMLInitializationEvent event) {
-		MTPPCore.initialize(proxy);
 	}
 
 	@PostInit
 	public void MultiTexturedPPlatePostInit(FMLPostInitializationEvent event) {
+		MTPPCore.initialize(proxy);
 	}
 }
