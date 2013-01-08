@@ -3,6 +3,8 @@ package eurymachus.mtpp.blocks;
 import java.util.List;
 import java.util.Random;
 
+import slimevoid.lib.IContainer;
+
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.StepSound;
 import net.minecraft.block.material.Material;
@@ -24,7 +26,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import eurymachus.mtpp.core.MTPPInit;
 import eurymachus.mtpp.core.MTPPItemPPlates;
 import eurymachus.mtpp.tileentities.TileEntityMTPPlate;
-import eurysmods.api.IContainer;
 
 public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 	Class mtPPlateEntityClass;

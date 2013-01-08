@@ -2,17 +2,18 @@ package eurymachus.mtpp.core;
 
 import java.io.File;
 
+import slimevoid.lib.ICommonProxy;
+import slimevoid.lib.ICore;
+import slimevoid.lib.core.BlockRemover;
+import slimevoid.lib.core.Core;
+import slimevoid.lib.core.SlimevoidCore;
+import slimevoid.lib.core.RecipeRemover;
+
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.Configuration;
 import eurymachus.mtpp.tileentities.TileEntityMTPPlate;
-import eurysmods.api.ICommonProxy;
-import eurysmods.api.ICore;
-import eurysmods.core.BlockRemover;
-import eurysmods.core.Core;
-import eurysmods.core.EurysCore;
-import eurysmods.core.RecipeRemover;
 
 public class MTPPInit {
 	public static ICore MTPP;
@@ -33,19 +34,19 @@ public class MTPPInit {
 	}
 
 	public static void load() {
-		EurysCore.console(MTPP.getModName(), "Removing Recipies...");
+		SlimevoidCore.console(MTPP.getModName(), "Removing Recipies...");
 		RecipeRemover.registerItemRecipeToRemove(Block.pressurePlatePlanks);
 		RecipeRemover.removeCrafting();
-		EurysCore.console(MTPP.getModName(), "Removing Blocks...");
+		SlimevoidCore.console(MTPP.getModName(), "Removing Blocks...");
 		BlockRemover.removeVanillaBlock(Block.pressurePlatePlanks);
-		EurysCore.console(MTPP.getModName(), "Registering items...");
+		SlimevoidCore.console(MTPP.getModName(), "Registering items...");
 		MTPPCore.addItems();
-		EurysCore.console(MTPP.getModName(), "Registering blocks...");
+		SlimevoidCore.console(MTPP.getModName(), "Registering blocks...");
 		MTPPCore.registerBlocks();
 		MTPP.getProxy().registerRenderInformation();
-		EurysCore.console(MTPP.getModName(), "Naming items...");
+		SlimevoidCore.console(MTPP.getModName(), "Naming items...");
 		MTPPCore.addItemNames();
-		EurysCore.console(MTPP.getModName(), "Registering recipes...");
+		SlimevoidCore.console(MTPP.getModName(), "Registering recipes...");
 		MTPPCore.addRecipes();
 	}
 

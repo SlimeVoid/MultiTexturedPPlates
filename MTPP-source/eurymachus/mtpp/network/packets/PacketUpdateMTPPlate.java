@@ -1,9 +1,9 @@
 package eurymachus.mtpp.network.packets;
 
+import slimevoid.lib.network.PacketPayload;
+import slimevoid.lib.network.PacketTileEntityMT;
 import eurymachus.mtpp.core.MTPPInit;
 import eurymachus.mtpp.tileentities.TileEntityMTPPlate;
-import eurysmods.network.packets.core.PacketPayload;
-import eurysmods.network.packets.core.PacketTileEntityMT;
 
 public class PacketUpdateMTPPlate extends PacketTileEntityMT {
 	public PacketUpdateMTPPlate() {

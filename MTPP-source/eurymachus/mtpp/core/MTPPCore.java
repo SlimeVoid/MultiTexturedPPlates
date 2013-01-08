@@ -2,6 +2,8 @@ package eurymachus.mtpp.core;
 
 import java.io.File;
 
+import slimevoid.lib.ICommonProxy;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.EnumMobType;
 import net.minecraft.item.Item;
@@ -13,7 +15,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import eurymachus.mtpp.blocks.BlockMTPPlate;
 import eurymachus.mtpp.items.ItemMTPPlate;
 import eurymachus.mtpp.tileentities.TileEntityMTPPlate;
-import eurysmods.api.ICommonProxy;
 
 public class MTPPCore {
 	public static String version = "v1.2";

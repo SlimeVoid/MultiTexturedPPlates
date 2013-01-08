@@ -1,5 +1,6 @@
 package eurymachus.mtpp.network;
 
+import slimevoid.lib.INetworkConnection;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.NetLoginHandler;
 import net.minecraft.network.packet.NetHandler;
@@ -8,7 +9,6 @@ import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.server.MinecraftServer;
 import cpw.mods.fml.common.network.Player;
 import eurymachus.mtpp.core.MTPPInit;
-import eurysmods.api.INetworkConnection;
 
 public class MTPPConnection implements INetworkConnection {
 
