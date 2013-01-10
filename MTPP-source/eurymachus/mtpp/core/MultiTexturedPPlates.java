@@ -15,7 +15,7 @@ import eurymachus.mtpp.network.MTPPConnection;
 @Mod(
 		modid = "MultiTexturedPPlates",
 		name = "Multi-Textured Pressure Plates",
-		dependencies = "after:EurysCore",
+		dependencies = "after:SlimevoidLib",
 		version = "2.0.0.0")
 @NetworkMod(
 		clientSideRequired = true,
