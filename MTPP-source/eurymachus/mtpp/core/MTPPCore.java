@@ -2,8 +2,6 @@ package eurymachus.mtpp.core;
 
 import java.io.File;
 
-import slimevoid.lib.ICommonProxy;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.EnumMobType;
 import net.minecraft.item.Item;
@@ -11,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
+import slimevoid.lib.ICommonProxy;
 import cpw.mods.fml.common.registry.GameRegistry;
 import eurymachus.mtpp.blocks.BlockMTPPlate;
 import eurymachus.mtpp.items.ItemMTPPlate;

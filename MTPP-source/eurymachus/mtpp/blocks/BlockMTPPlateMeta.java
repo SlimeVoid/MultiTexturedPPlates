@@ -3,9 +3,6 @@ package eurymachus.mtpp.blocks;
 import java.util.List;
 import java.util.Random;
 
-import eurymachus.mtpp.core.MTPPInit;
-import eurymachus.mtpp.core.MTPPItemPPlates;
-
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.StepSound;
 import net.minecraft.block.material.Material;
@@ -15,6 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import eurymachus.mtpp.core.MTPPInit;
+import eurymachus.mtpp.core.MTPPItemPPlates;
 
 public class BlockMTPPlateMeta extends BlockPressurePlate {
 

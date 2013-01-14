@@ -1,14 +1,14 @@
 package eurymachus.mtpp.items;
 
-import eurymachus.mtpp.core.MTPPBlocks;
-import eurymachus.mtpp.core.MTPPItemPPlates;
-import eurymachus.mtpp.tileentities.TileEntityMTPPlate;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import eurymachus.mtpp.core.MTPPBlocks;
+import eurymachus.mtpp.core.MTPPItemPPlates;
+import eurymachus.mtpp.tileentities.TileEntityMTPPlate;
 
 public class ItemMTPPlate extends ItemBlock {
 	private String[] pPlateNames = MTPPItemPPlates.getPPlateNames();

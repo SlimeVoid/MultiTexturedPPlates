@@ -3,8 +3,6 @@ package eurymachus.mtpp.blocks;
 import java.util.List;
 import java.util.Random;
 
-import slimevoid.lib.IContainer;
-
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.StepSound;
 import net.minecraft.block.material.Material;
@@ -21,6 +19,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.EnumGameType;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import slimevoid.lib.IContainer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import eurymachus.mtpp.core.MTPPInit;
