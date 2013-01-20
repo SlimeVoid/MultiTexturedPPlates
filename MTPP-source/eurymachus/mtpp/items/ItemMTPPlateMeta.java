@@ -68,7 +68,6 @@ public class ItemMTPPlateMeta extends ItemBlock {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int x, int y, int z, int l, float a, float b, float c) {
-		Block mtPPlate = MTPPBlocks.mtPPlate.me;
 		if (l == 0) {
 			--y;
 		}
@@ -96,10 +95,10 @@ public class ItemMTPPlateMeta extends ItemBlock {
 			return false;
 		} else if (!entityplayer.canPlayerEdit(x, y, z, l, itemstack)) {
 			return false;
-		} else if (y == 255 && mtPPlate.blockMaterial.isSolid()) {
+		} else if (y == 255 && this.blockRef.blockMaterial.isSolid()) {
 			return false;
 		} else if (world.canPlaceEntityOnSide(
-				mtPPlate.blockID,
+				this.blockRef.blockID,
 				x,
 				y,
 				z,
@@ -110,19 +109,19 @@ public class ItemMTPPlateMeta extends ItemBlock {
 					x,
 					y,
 					z,
-					mtPPlate.blockID,
+					this.blockRef.blockID,
 					this.getMetadata(itemstack.getItemDamage()))) {
-				if (world.getBlockId(x, y, z) == mtPPlate.blockID) {
-					mtPPlate.onBlockPlacedBy(world, x, y, z, entityplayer);
-					mtPPlate.onPostBlockPlaced(world, x, y, z, l); /*onPostBlockPlaced*/
+				if (world.getBlockId(x, y, z) == this.blockRef.blockID) {
+					this.blockRef.onBlockPlacedBy(world, x, y, z, entityplayer);
+					this.blockRef.onPostBlockPlaced(world, x, y, z, l); /*onPostBlockPlaced*/
 				}
 				world.playSoundEffect(
 						(x + 0.5F),
 						(y + 0.5F),
 						(z + 0.5F),
-						mtPPlate.stepSound.getStepSound(),
-						(mtPPlate.stepSound.getVolume() + 1.0F) / 2.0F,
-						mtPPlate.stepSound.getPitch() * 0.8F);
+						this.blockRef.stepSound.getStepSound(),
+						(this.blockRef.stepSound.getVolume() + 1.0F) / 2.0F,
+						this.blockRef.stepSound.getPitch() * 0.8F);
 				--itemstack.stackSize;
 				return true;
 			} else {

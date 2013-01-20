@@ -28,9 +28,9 @@ import eurymachus.mtpp.core.MTPPItemPPlates;
 import eurymachus.mtpp.tileentities.TileEntityMTPPlate;
 
 public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
-	Class mtPPlateEntityClass;
+	Class<? extends TileEntity> mtPPlateEntityClass;
 
-	public BlockMTPPlate(int blockId, Class pPlateClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, String blockName) {
+	public BlockMTPPlate(int blockId, Class<? extends TileEntity> pPlateClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, String blockName) {
 		super(blockId, 0, null, Material.circuits);
 		this.setBlockName(blockName);
 		this.isBlockContainer = true;
@@ -65,6 +65,7 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 				meta);
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void setStateIfMobInteractsWithMTPlate(World world, int i, int j, int k) {
 		TileEntity tileentity = world.getBlockTileEntity(i, j, k);
 		if ((tileentity != null) && (tileentity instanceof TileEntityMTPPlate)) {
@@ -233,7 +234,7 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 	@Override
 	public TileEntity createNewTileEntity(World world) {
 		try {
-			return (TileEntity) mtPPlateEntityClass.newInstance();
+			return mtPPlateEntityClass.newInstance();
 		} catch (Exception exception) {
 			throw new RuntimeException(exception);
 		}
@@ -263,6 +264,7 @@ public class BlockMTPPlate extends BlockPressurePlate implements IContainer {
 				z));
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@SideOnly(Side.CLIENT)
 	/**
 	 * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)

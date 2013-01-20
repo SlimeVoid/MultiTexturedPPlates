@@ -52,7 +52,6 @@ public class ItemMTPPlate extends ItemBlock {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l, float a, float b, float c) {
-		Block mtPPlate = MTPPBlocks.mtPPlate.me;
 		if (l == 0) {
 			--j;
 		}
@@ -80,10 +79,10 @@ public class ItemMTPPlate extends ItemBlock {
 			return false;
 		} else if (!entityplayer.canPlayerEdit(i, j, k, l, itemstack)) {
 			return false;
-		} else if (j == 255 && mtPPlate.blockMaterial.isSolid()) {
+		} else if (j == 255 && this.blockRef.blockMaterial.isSolid()) {
 			return false;
 		} else if (world.canPlaceEntityOnSide(
-				mtPPlate.blockID,
+				this.blockRef.blockID,
 				i,
 				j,
 				k,
@@ -94,11 +93,11 @@ public class ItemMTPPlate extends ItemBlock {
 					i,
 					j,
 					k,
-					mtPPlate.blockID,
+					this.blockRef.blockID,
 					0)) {
-				if (world.getBlockId(i, j, k) == mtPPlate.blockID) {
-					mtPPlate.onBlockPlacedBy(world, i, j, k, entityplayer);
-					mtPPlate.onPostBlockPlaced(world, i, j, k, l); /*onPostBlockPlaced*/
+				if (world.getBlockId(i, j, k) == this.blockRef.blockID) {
+					this.blockRef.onBlockPlacedBy(world, i, j, k, entityplayer);
+					this.blockRef.onPostBlockPlaced(world, i, j, k, l); /*onPostBlockPlaced*/
 					TileEntity tileentity = world.getBlockTileEntity(i, j, k);
 					if (tileentity != null && tileentity instanceof TileEntityMTPPlate) {
 						TileEntityMTPPlate tileentitymtpplate = (TileEntityMTPPlate) tileentity;
@@ -113,9 +112,9 @@ public class ItemMTPPlate extends ItemBlock {
 						(i + 0.5F),
 						(j + 0.5F),
 						(k + 0.5F),
-						mtPPlate.stepSound.getStepSound(),
-						(mtPPlate.stepSound.getVolume() + 1.0F) / 2.0F,
-						mtPPlate.stepSound.getPitch() * 0.8F);
+						this.blockRef.stepSound.getStepSound(),
+						(this.blockRef.stepSound.getVolume() + 1.0F) / 2.0F,
+						this.blockRef.stepSound.getPitch() * 0.8F);
 				--itemstack.stackSize;
 				return true;
 			} else {

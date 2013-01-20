@@ -73,6 +73,7 @@ public class BlockMTPPlateMeta extends BlockPressurePlate {
 		return stateAndMeta;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void setStateIfMobInteractsWithMTPlate(World world, int x, int y, int z) {
 		int state = getStateFromMeta(world.getBlockMetadata(x, y, z));
 		int trigger = getTriggerFromMeta(world.getBlockMetadata(x, y, z));
